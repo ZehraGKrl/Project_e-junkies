@@ -30,21 +30,6 @@ public class BaseDriver {
     public void BaslangicIslemleri() {
 
 
-      // switch (browserTipi.toLowerCase()) {
-      //     case "chrome":
-      //         driver = new ChromeDriver();
-      //         break;
-      //     case "firefox":
-      //         driver = new FirefoxDriver();
-      //         break;
-      //     case "edge":
-      //         driver = new EdgeDriver();
-      //         break;
-      //     default:
-      //         driver = new ChromeDriver();
-      //         break;
-      // }
-
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
@@ -79,12 +64,6 @@ public class BaseDriver {
         js.executeScript("arguments[0].click();", element);
     }
 
-    public void myAssert(WebElement element, String text) {
-        wait.until(ExpectedConditions.visibilityOf(element));
-        scrollToElement(element);
-        Assert.assertTrue(element.getText().contains(text), "Bu Sayfada Değilsiniz");
-    }
-
 
     @AfterClass
     public void KapanisIslemleri() {
@@ -94,16 +73,15 @@ public class BaseDriver {
     }
 
     @BeforeMethod
-    public void BeforeMetod() {
-        logger.info("Metod başladı");
+    public void BeforeMethod() {
+        logger.info("Test Method Başladı");
+        System.out.println("****************************************");
 
-        logger.warn("WARN : Metod başladı, hata oluşmuş olsa idi");
     }
 
     @AfterMethod
-    public void AfterMetod(ITestResult sonuc) {
-        logger.info(sonuc.getName() + " Metod bitti " + (sonuc.getStatus() == 1 ? "Passed" : "failed"));
-
-        logger.warn("WARN : Metod bitti, hata oluşmuş olsa idi");
+    public void AfterMetod(ITestResult result) {
+        System.out.println("****************************************");
+        logger.info(result.getName() + " Metod finished " + (result.getStatus() == 1 ? "Passed" : "Failed"));
     }
 }

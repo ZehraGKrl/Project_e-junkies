@@ -11,8 +11,12 @@ import static Utility.BaseDriver.wait;
 
 public class Methods {
     public void addToCart(){
-        BaseDriver bd=new BaseDriver();
         driver.navigate().to("https://shopdemo.e-junkie.com/");
+
+       //String url = driver.getCurrentUrl();
+       //Assert.assertEquals(url, "https://shopdemo.e-junkie.com/", "Site Açılmadı");
+        BaseDriver bd=new BaseDriver();
+
         Elements elements=new Elements();
         Actions action = new Actions(driver);
         bd.myClick(elements.ebookAddCard);
@@ -20,4 +24,5 @@ public class Methods {
         driver.switchTo().frame(elements.popupFrame);
         Assert.assertFalse(elements.addedCart.toString().isEmpty());
     }
+
 }

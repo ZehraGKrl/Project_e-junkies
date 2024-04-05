@@ -2,8 +2,14 @@ package Elements;
 
 import Utility.BaseDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.testng.Assert;
+
+import static Utility.BaseDriver.driver;
+import static Utility.BaseDriver.wait;
 
 public class Elements {
     public Elements() {
@@ -24,5 +30,13 @@ public class Elements {
     public WebElement codeApply;
     @FindBy(xpath = "//*[text()='Invalid promo code']")
     public WebElement invalidCode;
+    @FindBy(xpath = "//button[ contains( text(), 'Debit')]")
+    public WebElement debitCard;
+    @FindBy(css = "iframe[class='EJIframeV3 EJOverlayV3']")
+    public WebElement payFrame;
+    @FindBy(css = "[class='Pay-Button']")
+    public WebElement payButton;
+
+
 
 }

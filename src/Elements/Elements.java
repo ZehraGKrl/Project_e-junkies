@@ -1,3 +1,5 @@
+package Elements;
+
 import Utility.BaseDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -13,7 +15,7 @@ public class Elements {
     @FindBy(css = "iframe[class='EJIframeV3 EJOverlayV3']")
     public WebElement popupFrame;
     @FindBy(css = "[class='Product-Quantity-Value readOnly']")
-    public WebElement addedCard;
+    public WebElement addedCart;
     @FindBy(css = "[class='Actions']>button+button")
     public WebElement addPromoCard;
     @FindBy(xpath = "//div[@class='Promo-Box Active']/input")
